@@ -1,0 +1,23 @@
+<form>
+
+  <form class="conteudo-form">
+    <mat-form-field class="mat-form-field " appearance="outline">
+      <mat-label>Insira o XML.</mat-label>
+      <textarea  class="input" matInput #message  [(ngModel)]="entrada" name="entrada" maxlength="1000" placeholder="<data></data>"></textarea>
+      <mat-hint>{{message.value.length}} / 1000</mat-hint>
+    </mat-form-field>
+  </form>
+
+  <div class="button">
+    <button mat-raised-button color="basic" (click)="limpar()">Limpar</button>
+    <button mat-raised-button color="primary" (click)="assinar()">Assinar</button>
+  </div>
+
+  <form class="conteudo-form" *ngIf="saidaNaoEstaVazia()">
+    <mat-form-field class="mat-form-field " appearance="outline">
+      <mat-label>XML assinado.</mat-label>
+      <textarea  class="input" matInput #message placeholder="<data></data>"></textarea>
+    </mat-form-field>
+  </form>
+
+</form>

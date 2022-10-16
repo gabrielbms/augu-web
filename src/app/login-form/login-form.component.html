@@ -1,0 +1,23 @@
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form>
+      <p>
+        <mat-form-field>
+          <input matInput name="nome" [(ngModel)]="usuario.nome" placeholder="usuario">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input matInput name="senha" [(ngModel)]="usuario.senha" placeholder="senha">
+        </mat-form-field>
+      </p>
+
+      <div class="button">
+        <button mat-raised-button color="primary" type="submit" name="action" (click)="fazerLogin()">Entrar</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>

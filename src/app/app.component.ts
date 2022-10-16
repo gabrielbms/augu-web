@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Navigation, Router, UrlTree } from '@angular/router';
+import { AuthService } from './login-form/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'augu-web';
+  title = 'AuguWeb';
+
+  mostraLogin: boolean = true;
+  mostraMenuCompleto: boolean = false;
+
+  constructor(
+    private authService: AuthService,
+  ) { }
+
+  ngOnInit() {
+    this.authService.mostrarMenuCompletoEmitter.subscribe(
+      mostrar => this.mostraMenuCompleto = mostrar
+    );
+    this.authService.mostrarLoginEmitter.subscribe(
+      mostrar => this.mostraLogin = mostrar
+    );
+  }
 }
